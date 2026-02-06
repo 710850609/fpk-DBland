@@ -77,13 +77,14 @@ if [ "${build_all}" == "true" ] || [ ! -f "${bin_file}" ]; then
       download_url="${download_proxy_url}/${download_url}"
     fi
     echo "开始下载dbland: ${download_url}"
-    wget -O "dbland-${arch}.tar.gz" "${download_url}" || { echo "下载文件失败"; exit 1; }
+    mkdir -p temp
+    wget -O "temp/dbland-${arch}.tar.gz" "${download_url}" || { echo "下载文件失败"; exit 1; }
     echo "下载完成，开始解压文件"
-    tar -xzf dbland.tar.gz || { echo "解压文件失败"; exit 1; }
+    tar -xzf temp/dbland-${arch}.tar.gz -C "temp" || { echo "解压文件失败"; exit 1; }
     # echo "$(ls -lh)"
     mkdir -p DBland/app/bin/
     echo "移动文件到 $bin_file 位置"
-    mv dbland "$bin_file" || { echo "移动文件失败"; exit 1; }
+    mv temp/dbland "$bin_file" || { echo "移动文件失败"; exit 1; }
     # echo "删除下载的压缩包"
     # rm -f dbland.tar.gz
 else

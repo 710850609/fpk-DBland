@@ -1,3 +1,5 @@
 *.fpk
 *.tar.gz
 DBland/app/bin/dbland
+temp
+temp/*
