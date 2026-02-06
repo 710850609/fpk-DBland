@@ -1,0 +1,9 @@
+# default sqlite database file is dbland.db
+#sqlite:
+#  data-path: data
+
+init-schema: true
+
+server:
+  environment: release
+  path: v1

@@ -1,0 +1,1 @@
+cd DBland && sudo appcenter-cli install-local --env ../config.env && cd ../

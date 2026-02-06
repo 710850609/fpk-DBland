@@ -1,0 +1,17 @@
+#!/bin/bash
+
+### This script is called after the user change environment variables in application setting page.
+set -e
+source "/var/apps/${TRIM_APPNAME}/cmd/common"
+
+update_dbland_port() {
+    dbland_port=$(str_trim "$dbland_port")
+    if check_port_in_use "${dbland_port}"; then
+        alarm_and_exit "端口 ${dbland_port} 已被占用，请更换端口后重试"
+    fi
+    log_msg "更新 dbland 端口号为 ${dbland_port}"
+}
+
+update_dbland_port
+
+exit 0

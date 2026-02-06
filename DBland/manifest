@@ -1,0 +1,12 @@
+appname               = DBland
+version=1.1.1-001
+display_name          = DBland
+desc                  = Go语言实现的Web版本数据库连接工具，内存占用少，启动快，支持MySQL，Oracle，SQLite等
+platform=x86
+source                = thirdparty
+maintainer            = m9d2
+maintainer_url        = https://github.com/m9d2/dbland
+distributor           = BoB
+distributor_url       =https://club.fnnas.com/home.php?mod=space&uid=33130&do=thread&view=me&from=space
+desktop_uidir         = ui
+desktop_applaunchname = DBland.Application
