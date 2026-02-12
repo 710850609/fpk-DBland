@@ -5,7 +5,9 @@ source "/var/apps/${TRIM_APPNAME}/cmd/common"
 PID_FILE="${TRIM_PKGVAR}/app.pid"
 
 # write the command to start your program here 
-CMD="dbland_port=$(str_trim "$dbland_port") && ${TRIM_APPDEST}/bin/dbland -p ${dbland_port} start"
+dbland_port=$(str_trim "$dbland_port")
+# 切换到数据目录，执行启动命令
+CMD="cd ${TRIM_PKGVAR} && ${TRIM_APPDEST}/bin/dbland -p ${dbland_port} start"
 
 log_msg() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> ${LOG_FILE}
